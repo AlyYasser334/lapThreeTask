@@ -1,0 +1,19 @@
+name: simple-CI-CD-demo
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: First job
+        run: echo "Job 1 is running"
+
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Second job
+        run: echo "Job 2 is running after Job 1"
